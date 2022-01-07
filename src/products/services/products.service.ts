@@ -12,7 +12,7 @@ export class ProductsService {
       name: 'Product one',
       description: 'my description',
       price: 123,
-      image: '',
+      image: 'imagen.jpg',
       stock: 12,
     },
   ];
