@@ -1,4 +1,7 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, Inject } from '@nestjs/common';
+
+// De npm i @nestjs/config
+import { ConfigService } from '@nestjs/config';
 
 import { User } from '../entities/user.entity';
 import { Order } from '../entities/order.entity';
@@ -8,7 +11,13 @@ import { ProductsService } from '../../products/services/products.service';
 
 @Injectable()
 export class UsersService {
-  constructor(private productsService: ProductsService) {}
+  constructor(
+    // Insert de apikey de Global Module
+    @Inject('API_KEY') private apiKey: string,
+    private productsService: ProductsService,
+    // Insert de APIKEY de la config global
+    private configService: ConfigService,
+  ) {}
 
   private counterId = 1;
   private users: User[] = [
@@ -21,6 +30,11 @@ export class UsersService {
   ];
 
   findAll() {
+    const apiKey = this.configService.get('API_KEY');
+    const dbName = this.configService.get('DATABASE_NAME');
+
+    console.log(`Apikey del modulo global: ${this.apiKey}`);
+    console.log(apiKey, dbName);
     return this.users;
   }
 

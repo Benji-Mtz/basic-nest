@@ -19,5 +19,4 @@ export class AppController {
   hello() {
     return 'con /slash/';
   }
-
 }
