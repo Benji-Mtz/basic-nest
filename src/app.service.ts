@@ -19,7 +19,8 @@ export class AppService {
 
     const apiKey = this.configType.apiKey;
     const db = this.configType.database.name;
+    const port = this.configType.database.port;
     // return `Valor inyectado a traves de toda la app con useValue: ${this.apiKey}`;
-    return `Valor inyectado a traves de toda la app con ConfigModule: ${apiKey} y ${db}`;
+    return `Valor inyectado a traves de toda la app con ConfigType: ${apiKey} , ${db} y ${port}`;
   }
 }
