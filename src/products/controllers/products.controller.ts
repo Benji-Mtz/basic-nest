@@ -47,12 +47,12 @@ export class ProductsController {
   //   return `products (limit) ${limit},  (offset) ${offset}`;
   // }
   // localhost:3000/products/filter
-  @Get('filter')
-  getProductsFilter() {
-    return {
-      message: `yo soy un filter`,
-    };
-  }
+  // @Get('filter')
+  // getProductsFilter() {
+  //   return {
+  //     message: `yo soy un filter`,
+  //   };
+  // }
 
   // localhost:3000/products/:id
   @Get(':id')
@@ -82,6 +82,7 @@ export class ProductsController {
   }
   */
 
+  /*
   @Post()
   create(@Body() payload: CreateProductDto) {
     // return {
@@ -103,5 +104,5 @@ export class ProductsController {
   @Delete(':id')
   delete(@Param('id') id: string) {
     return this.productService.remove(+id);
-  }
+  }*/
 }
