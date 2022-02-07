@@ -23,7 +23,6 @@ import { CreateProductDto, UpdateProductDto } from '../dtos/products.dtos';
 @ApiTags('Products')
 @Controller('products')
 export class ProductsController {
-
   constructor(private productService: ProductsService) {}
 
   // localhost:3000/products
@@ -54,55 +53,27 @@ export class ProductsController {
   //   };
   // }
 
-  // localhost:3000/products/:id
   @Get(':id')
   @HttpCode(HttpStatus.ACCEPTED)
   getOne(@Param('id', ParseIntPipe) id: number) {
-    // return {
-    //   message: `product - ${id}`,
-    // };
-
     return this.productService.findOne(id);
   }
 
-  // Respuesta estilo Express con respuesta a cargo de nosotros
-  // @Get(':id')
-  // @HttpCode(HttpStatus.ACCEPTED)
-  // getOne(@Res() response: Response, @Param('id') id: string) {
-  //   response.status(202).send({
-  //     message: `product - ${id}`,
-  //   });
-  //   return this.productService.findOne(+id);
-  // }
-
-  /*
-  @Get('products/:id')
-  getProduct(@Param() params: any) {
-    return `product - ${params.id}`;
-  }
-  */
-
-  /*
   @Post()
   create(@Body() payload: CreateProductDto) {
-    // return {
-    //   message: 'accion de crear',
-    //   payload,
-    // };
     return this.productService.create(payload);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() payload: UpdateProductDto) {
-    // return {
-    //   id,
-    //   payload,
-    // };
-    return this.productService.update(+id, payload);
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() payload: UpdateProductDto,
+  ) {
+    return this.productService.update(id, payload);
   }
 
   @Delete(':id')
-  delete(@Param('id') id: string) {
-    return this.productService.remove(+id);
-  }*/
+  delete(@Param('id', ParseIntPipe) id: number) {
+    return this.productService.remove(id);
+  }
 }
