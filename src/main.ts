@@ -12,6 +12,10 @@ async function bootstrap() {
       // Descarta informacion extra que no esta en el DTO del body
       whitelist: true,
       forbidNonWhitelisted: true,
+      transformOptions: {
+        // Transforma los numeros a numeros en los query params
+        enableImplicitConversion: true,
+      }
     }),
   );
 

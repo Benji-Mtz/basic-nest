@@ -75,12 +75,12 @@ export class UsersService {
     return true;
   }
 
-  getOrderByUser(id: number): Order {
-    const user = this.findOne(id);
-    return {
-      date: new Date(),
-      user,
-      products: this.productsService.findAll(),
-    };
-  }
+  // async getOrderByUser(id: number): {
+  //   const user = this.findOne(id);
+  //   return {
+  //     date: new Date(),
+  //     user,
+  //     products: await this.productsService.findAll(),
+  //   };
+  // }
 }
