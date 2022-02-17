@@ -15,7 +15,7 @@ async function bootstrap() {
       transformOptions: {
         // Transforma los numeros a numeros en los query params
         enableImplicitConversion: true,
-      }
+      },
     }),
   );
 
