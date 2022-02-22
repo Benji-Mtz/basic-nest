@@ -1,0 +1,42 @@
+Postgresql con Docker:
+$ docker-compose ps
+$ docker-compose up -d postgres
+$ docker-compose logs -f postgres
+
+Acceder al contendor
+$ docker-compose exec postgres bash
+# psql -h localhost -d my_db -U benji
+\d+
+\q
+
+PGADMIN con Docker:
+$ docker-compose ps
+$ docker-compose up -d pgadmin
+$ docker-compose logs -f pgadmin
+
+Config PGADMIN - create server:
+  Pestaña General:
+    Name: db_nest
+  Pestaña Connection:
+    Host: 172.20.0.2 (Process_IP)
+    Port: 5432
+    Database: postgres
+    username: benji
+    password: benji123
+
+
+
+Process_IP:
+$ docker ps
+$ docker inspect [id_de_img_postgre]
+Copiar la IP -> "IPAddress": "172.20.0.2",
+
+Paquetes para Postgresql y typeorm
+npm i pg
+// types para los tipos en javascript
+npm i @types/pg -D
+npm install --save @nestjs/typeorm typeorm
+Agregar configuración de typeorm de la doc
+
+Clausular typeorm
+find({where... etc})

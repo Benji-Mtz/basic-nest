@@ -27,7 +27,9 @@ const API_KEY_PROD = 'ValPROD';
           password: dbPass,
           database: dbName,
           // entities: [],
+          // Las entidades se sincronizan con la DB y crean las tablas correspondientes
           synchronize: true,
+          // Busca identidades y las sincroniza
           autoLoadEntities: true,
         };
       },
@@ -40,6 +42,7 @@ const API_KEY_PROD = 'ValPROD';
     },
     {
       provide: 'POSTGRES',
+      // useFactory permite funciones async e inyectar configs
       useFactory: (configType: ConfigType<typeof config>) => {
         const { dbName, dbUser, dbPass, dbPort, dbHost } = configType.postgres;
 

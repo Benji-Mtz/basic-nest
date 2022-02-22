@@ -1,7 +1,9 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
+// Decorator Entity para ser una entidad en typeorm
 @Entity()
 export class Product {
+  // Llave primaria
   @PrimaryGeneratedColumn()
   id: number;
 
